@@ -5,8 +5,8 @@ rules:
     mergeMethod: merge
     mergeUnstable: false
     assignees:
-      - KyleGospo
+      - goknsh
     reviewers:
-      - KyleGospo
+      - goknsh
     conflictReviewers:
-      - KyleGospo
+      - goknsh

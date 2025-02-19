@@ -8,7 +8,7 @@ Version:  {{{ git_dir_version }}}
 Release:  1%{?dist}
 Summary:  The Coral Gasket Driver allows usage of the Coral EdgeTPU on Linux systems
 License:  GPLv2
-URL:      https://github.com/KyleGospo/gasket-dkms/
+URL:      https://github.com/goknsh/gasket-driver/
 
 Source:   %{url}/archive/refs/heads/main.tar.gz
 
@@ -26,12 +26,12 @@ The Coral Gasket Driver allows usage of the Coral EdgeTPU on Linux systems. The 
 # print kmodtool output for debugging purposes:
 kmodtool --target %{_target_cpu} --kmodname %{name} %{?buildforkernels:--%{buildforkernels}} %{?kernels:--for-kernels "%{?kernels}"} 2>/dev/null
 
-%setup -q -c gasket-dkms-main/src
+%setup -q -c gasket-driver-main/src
 
 find . -type f -name '*.c' -exec sed -i "s/#VERSION#/%{version}/" {} \+
 
 for kernel_version  in %{?kernel_versions} ; do
-  cp -a gasket-dkms-main/src _kmod_build_${kernel_version%%___*}
+  cp -a gasket-driver-main/src _kmod_build_${kernel_version%%___*}
 done
 
 %build
